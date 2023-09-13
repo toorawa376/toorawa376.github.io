@@ -19,7 +19,17 @@ text-decoration: underline;
             font-family: 'Segoe Print', sans-serif;
             transition: background 0.3s; /* Smooth transition for background color */
         }
+#sortButton {
+             background: linear-gradient(to bottom, #800080, #00008B); /* Purple to Dark Blue gradient */
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-family: 'Segoe Print', sans-serif;
+            font-size: 14px;
+            border-radius: 10px;
 
+        }
         .tab-button:hover {
             background: linear-gradient(to bottom, #2980b9, #2cbac6); /* Hover effect */
         }
@@ -69,12 +79,21 @@ text-decoration: underline;
 <body>
     <h1 class="page-title">Jailbreak Values</h1>
 
+    <div class="button-container">
+    <!-- Top buttons for tab selection -->
     <button class="tab-button" onclick="openTab('cars')">Cars</button>
     <button class="tab-button" onclick="openTab('texturesColors')">Textures/Colors</button>
     <button class="tab-button" onclick="openTab('rims')">Rims</button>
     <button class="tab-button" onclick="openTab('spoilers')">Spoilers</button>
-    <button class="tab-button" onclick="openTab('tires')">Tires</button>
-    <button class="tab-button" onclick="openTab('hypers')">HyperChromes</button>
+</div>
+
+<!-- Add spacing -->
+<div style="margin-top: 20px;"></div>
+
+<button id="sortButton" onclick="toggleSort()">
+    ⬇️ Sort by: Price Highest to Lowest
+</button>
+    
 <div id="cars" class="tab">
     <h1 class="tab-title">Cars</h1>
     <table>
@@ -1681,6 +1700,8 @@ text-decoration: underline;
 
 
 <script>
+        var sortOrder = 'desc'; // Initial sorting order
+
         // Function to convert price to a numeric value
         function priceToNumeric(price) {
             if (price.includes('K')) {
@@ -1692,8 +1713,21 @@ text-decoration: underline;
             }
         }
 
-        // Function to sort the table rows in descending order by the second column (Value)
-        function sortTable(tabName) {
+        // Function to toggle sorting order and update button label
+        function toggleSort() {
+            var sortButton = document.getElementById('sortButton');
+            if (sortOrder === 'desc') {
+                sortOrder = 'asc';
+                sortButton.textContent = '⬆️ Sort by: Price Lowest to Highest';
+            } else {
+                sortOrder = 'desc';
+                sortButton.textContent = '⬇️ Sort by: Price Highest to Lowest';
+            }
+            sortTable('cars', sortOrder);
+        }
+
+        // Function to sort the table rows
+        function sortTable(tabName, order) {
             var table = document.querySelector(`#${tabName} table`);
             var rows = Array.from(table.rows);
 
@@ -1702,7 +1736,7 @@ text-decoration: underline;
             rows.sort(function (a, b) {
                 var valueA = priceToNumeric(a.cells[1].textContent);
                 var valueB = priceToNumeric(b.cells[1].textContent);
-                return valueB - valueA; // Sort in descending order
+                return order === 'desc' ? valueB - valueA : valueA - valueB;
             });
 
             // Clear the table body
@@ -1717,10 +1751,10 @@ text-decoration: underline;
         }
 
         // Initially, sort the tables in descending order by item price (Value)
-        sortTable('cars');
-        sortTable('texturesColors');
-        sortTable('rims');
-        sortTable('spoilers');
+        sortTable('cars', 'desc');
+        sortTable('texturesColors', 'desc');
+        sortTable('rims', 'desc');
+        sortTable('spoilers', 'desc');
 
         // Function for opening tabs (unchanged from your previous code)
         function openTab(tabName) {
