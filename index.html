@@ -1719,7 +1719,7 @@ text-decoration: underline;
 
     // Function to toggle sorting order and update button label
     function toggleSort() {
-        var sortButton = document.getElementById('sortButton');
+        var sortButton = document.querySelector('.sortButton');
         if (sortOrder === 'desc') {
             sortOrder = 'asc';
             sortButton.textContent = '⬆️ Sort by: Price Lowest to Highest';
