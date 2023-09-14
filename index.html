@@ -1704,78 +1704,84 @@ text-decoration: underline;
 
 
 <script>
-        var sortOrder = 'desc'; // Initial sorting order
+    var sortOrder = 'desc'; // Initial sorting order
 
-        // Function to convert price to a numeric value
-        function priceToNumeric(price) {
-            if (price.includes('K')) {
-                return parseFloat(price) * 1000;
-            } else if (price.includes('M')) {
-                return parseFloat(price) * 1000000;
-            } else {
-                return parseFloat(price);
-            }
+    // Function to convert price to a numeric value
+    function priceToNumeric(price) {
+        if (price.includes('K')) {
+            return parseFloat(price) * 1000;
+        } else if (price.includes('M')) {
+            return parseFloat(price) * 1000000;
+        } else {
+            return parseFloat(price);
+        }
+    }
+
+    // Function to toggle sorting order and update button label
+    function toggleSort() {
+        var sortButton = document.getElementById('sortButton');
+        if (sortOrder === 'desc') {
+            sortOrder = 'asc';
+            sortButton.textContent = '⬆️ Sort by: Price Lowest to Highest';
+        } else {
+            sortOrder = 'desc';
+            sortButton.textContent = '⬇️ Sort by: Price Highest to Lowest';
+        }
+        sortTable('cars', sortOrder);
+        sortTable('texturesColors', sortOrder);
+        sortTable('rims', sortOrder);
+        sortTable('spoilers', sortOrder);
+        sortTable('tires', sortOrder);
+        sortTable('hypers', sortOrder);
+    }
+
+    // Function to sort the table rows
+    function sortTable(tabName, order) {
+        var table = document.querySelector(`#${tabName} table`);
+        var rows = Array.from(table.rows);
+
+        rows.shift(); // Remove the header row from sorting
+
+        rows.sort(function (a, b) {
+            var valueA = priceToNumeric(a.cells[1].textContent);
+            var valueB = priceToNumeric(b.cells[1].textContent);
+            return order === 'desc' ? valueB - valueA : valueA - valueB;
+        });
+
+        // Clear the table body
+        while (table.rows.length > 1) {
+            table.deleteRow(1);
         }
 
-        // Function to toggle sorting order and update button label
-        function toggleSort() {
-            var sortButton = document.getElementById('sortButton');
-            if (sortOrder === 'desc') {
-                sortOrder = 'asc';
-                sortButton.textContent = '⬆️ Sort by: Price Lowest to Highest';
-            } else {
-                sortOrder = 'desc';
-                sortButton.textContent = '⬇️ Sort by: Price Highest to Lowest';
-            }
-            sortTable('cars', sortOrder);
+        // Append the sorted rows
+        rows.forEach(function (row) {
+            table.appendChild(row);
+        });
+    }
+
+    // Initially, sort the tables in descending order by item price (Value)
+    sortTable('cars', 'desc');
+    sortTable('texturesColors', 'desc');
+    sortTable('rims', 'desc');
+    sortTable('spoilers', 'desc');
+    sortTable('tires', 'desc');
+    sortTable('hypers', 'desc');
+
+    // Function for opening tabs (unchanged from your previous code)
+    function openTab(tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+            tabs[i].style.display = "none";
         }
+        document.getElementById(tabName).style.display = "block";
 
-        // Function to sort the table rows
-        function sortTable(tabName, order) {
-            var table = document.querySelector(`#${tabName} table`);
-            var rows = Array.from(table.rows);
-
-            rows.shift(); // Remove the header row from sorting
-
-            rows.sort(function (a, b) {
-                var valueA = priceToNumeric(a.cells[1].textContent);
-                var valueB = priceToNumeric(b.cells[1].textContent);
-                return order === 'desc' ? valueB - valueA : valueA - valueB;
-            });
-
-            // Clear the table body
-            while (table.rows.length > 1) {
-                table.deleteRow(1);
-            }
-
-            // Append the sorted rows
-            rows.forEach(function (row) {
-                table.appendChild(row);
-            });
+        var tabButtons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < tabButtons.length; i++) {
+            tabButtons[i].classList.remove("active-tab");
         }
-
-        // Initially, sort the tables in descending order by item price (Value)
-        sortTable('cars', 'desc');
-        sortTable('texturesColors', 'desc');
-        sortTable('rims', 'desc');
-        sortTable('spoilers', 'desc');
-
-        // Function for opening tabs (unchanged from your previous code)
-        function openTab(tabName) {
-            var tabs = document.getElementsByClassName("tab");
-            for (var i = 0; i < tabs.length; i++) {
-                tabs[i].style.display = "none";
-            }
-            document.getElementById(tabName).style.display = "block";
-
-            var tabButtons = document.getElementsByClassName("tab-button");
-            for (var i = 0; i < tabButtons.length; i++) {
-                tabButtons[i].classList.remove("active-tab");
-            }
-            event.currentTarget.classList.add("active-tab");
-        }
-openTab('cars');
-    </script>
-
+        event.currentTarget.classList.add("active-tab");
+    }
+    openTab('cars');
+</script>
 </body>
 </html>
