@@ -1,1787 +1,279 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanta Official</title>
     <style>
-        /* Style for the tabs */
-        .tab {
-            display: none;
-text-decoration: underline;
-            font-family: 'Segoe Print', sans-serif;
+        @font-face {
+            font-family: 'ModernaSansBlack';
+            src: url('font/ModernaSans-Black.eot');
+            src: url('font/ModernaSans-Black.eot?#iefix') format('embedded-opentype'),
+                url('font/ModernaSans-Black.woff2') format('woff2'),
+                url('font/ModernaSans-Black.woff') format('woff'),
+                url('font/ModernaSans-Black.ttf') format('truetype');
+            font-weight: 900;
+            font-style: normal;
         }
 
-        /* Style for the tab buttons */
-        .tab-button {
-            background: linear-gradient(to bottom, #3498db, #2cbac6, #30b3c2); /* Blue to Cyan gradient */
-            border: none;
-            color: #fff; /* White */
-            padding: 10px 20px;
-            cursor: pointer;
-            font-family: 'Segoe Print', sans-serif;
-            transition: background 0.3s; /* Smooth transition for background color */
-        }
-.sortButton {
-             background: linear-gradient(to bottom, #800080, #00008B); /* Purple to Dark Blue gradient */
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            font-family: 'Segoe Print', sans-serif;
-            font-size: 14px;
-            border-radius: 10px;
-
+        body {
+            margin: 0;
+            font-family: 'ModernaSansBlack', sans-serif;
+            display: flex;
+            height: 100vh;
+            background-image: url('Images/vanta%20green.png');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            transition: background-image 0.5s ease-in-out;
         }
 
-        .tab-button:hover {
-            background: linear-gradient(to bottom, #2980b9, #2cbac6); /* Hover effect */
-        }
-.tab-button.active-tab {
-    background: linear-gradient(to bottom, #0057a6, #0075c2, #0057a6);
-}
-
-
-
-
-        .tab-button:active {
-            background: linear-gradient(to bottom, #0057a6, #003e8a) !important; /* Darker blue to blue on click */
+        :root {
+            --white: #FFFFFF;
+            --black: #000000;
         }
 
-        /* Style for the table */
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            font-family: 'Segoe Print', sans-serif;
+        aside {
+            background-color: var(--white);
+            color: var(--black);
+            padding: 20px;
+            width: 120px;
+            border-radius: 20px;
+            overflow: hidden;
         }
 
-        th, td {
-            border: 1px solid #ddd;
-            text-align: left;
-            padding: 8px;
+        aside h2 {
+            font-size: 18px;
         }
 
-        th {
-            background: linear-gradient(to bottom, #f2f2f2, #e5e5e5); /* Gray gradient for table header */
+        header {
+            background-color: var(--white);
+            color: var(--black);
+            padding: 20px;
+            text-align: center;
+            border-radius: 20px;
+            position: absolute;
+            top: 0;
+            left: 10%;
+            right: 10%;
+            overflow: hidden;
+            width: 80%;
+            transition: background-color 2s ease-in-out, width 2s ease-in-out;
         }
 
-        /* Style for the title */
-        .page-title {
-            font-size: 56px;
+        header h1 {
+            margin: 0;
+            padding-bottom: 10px;
+            border-bottom: 6px solid var(--black);
             font-weight: bold;
-            text-decoration: underline;
-            font-family: 'Segoe Print', sans-serif;
-            
         }
 
-        /* Style for red text */
-        .red-text {
-            color: red;
+        .logo {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+        }
+
+        main {
+            padding: 20px;
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .your-style {
+            font-family: 'ModernaSansBlack', sans-serif;
+            font-weight: 900;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            text-decoration: italic;
+            margin-bottom: 10px;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .black-border {
+            border: 4px solid var(--black);
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: transform 0.5s ease-in-out;
+            width: 80%; /* Adjusted width for the "What is Vanta Official?" box */
+            max-width: 600px;
+            text-align: center; /* Centered contents */
+        }
+
+        .black-border:hover {
+            transform: scale(1.05);
+        }
+
+        .smaller-invite {
+            font-size: 14px;
+        }
+
+        .discord-image {
+            width: 80px; /* Adjusted width for the Discord invite box */
+            height: 80px; /* Adjusted height for the Discord invite box */
+        }
+
+        .join-discord {
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+        }
+
+        button {
+            background-color: var(--white);
+            color: var(--black);
+            border: none;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: 'ModernaSansBlack', sans-serif;
+            font-weight: 900;
+            transition: background-color 0.5s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Additional Styles for Values Page */
+
+        #values-header {
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            text-decoration: italic;
+            margin-bottom: 10px;
+        }
+
+        .values-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .values-box {
+            border: 4px solid var(--black);
+            padding: 20px;
+            border-radius: 20px;
+            margin: 20px;
+            cursor: pointer;
+            transition: transform 0.5s ease-in-out;
+            width: 40%; /* Adjusted width for the boxes on the values page */
+            max-width: 200px;
+            text-align: center; /* Centered contents */
+        }
+
+        .values-box:hover {
+            transform: scale(1.05);
+        }
+
+        /* Adjusted font size for the bottom box on the main page */
+        .bottom-box-content {
+            font-size: 18px;
         }
     </style>
+
 </head>
+
 <body>
-    <h1 class="page-title">Jailbreak Values</h1>
-
-   <div class="button-container">
-    <!-- Top buttons for tab selection -->
-    <button class="tab-button" onclick="openTab('cars')">Cars</button>
-    <button class="tab-button" onclick="openTab('texturesColors')">Textures/Colors</button>
-    <button class="tab-button" onclick="openTab('rims')">Rims</button>
-    <button class="tab-button" onclick="openTab('spoilers')">Spoilers</button>
-    <button class="tab-button" onclick="openTab('tires')">Tires</button>
-    <button class="tab-button" onclick="openTab('hypers')">HyperChromes</button>
-</div>
-
-<!-- Add spacing -->
-<div style="margin-top: 20px;"></div>
-
-<button class="sortButton" onclick="toggleSort()">
-    ⬇️ Sort by: Price Highest to Lowest
-</button>
-
-    
-<div id="cars" class="tab">
-    <h1 class="tab-title">Cars</h1>
-    <table>
-         <tr>
-            <th>Item</th>
-            <th>Value</th>
-            <th>Demand</th>
-            <th>Duped Value</th>
-            <th>Demand Value (NOT UPDATED - IGNORE)</th>
-        </tr>
-        <!-- Item 1 -->
-       <tr>
-        <td>Beam Hybrid</td>
-        <td>47.5M</td>
-        <td>7/10</td>
-        <td>40M</td>
-        <td>50M</td>
-    </tr>
-    <tr>
-        <td>Torpedo</td>
-        <td>37.5M</td>
-        <td>5/10</td>
-        <td>30M</td>
-        <td>47.5M</td>
-    </tr>
-    <tr>
-        <td>Icebreaker</td>
-        <td>40-42.5M</td>
-        <td>9/10</td>
-        <td>35M</td>
-        <td>40M</td>
-    </tr>
-    <tr>
-        <td>Arachnid</td>
-        <td>28.5M</td>
-        <td>4/10</td>
-        <td>24M</td>
-        <td>37.5M</td>
-    </tr>
-    <tr>
-        <td>Beignet</td>
-        <td>25M</td>
-        <td>9/10</td>
-        <td>22.5M</td>
-        <td>25M</td>
-    </tr>
-    <tr>
-        <td>Celsior</td>
-        <td>23M</td>
-        <td>9/10</td>
-        <td>20M</td>
-        <td>22.5M</td>
-    </tr>
-    <tr>
-        <td>Raptor</td>
-        <td>15M</td>
-        <td>7/10</td>
-        <td>Nil</td>
-        <td>15M</td>
-    </tr>
-    <tr>
-        <td>Banana Car</td>
-        <td>19M</td>
-        <td>9/10</td>
-        <td>Nil</td>
-        <td>16M</td>
-    </tr>
-    <tr>
-        <td>Crew Capsule</td>
-        <td>13M</td>
-        <td>6/10</td>
-        <td>10M</td>
-        <td>14.5M</td>
-    </tr>
-    <tr>
-        <td>Proto 8</td>
-        <td>12.5M</td>
-        <td>8/10</td>
-        <td>Nil</td>
-        <td>13M</td>
-    </tr>
-    <tr>
-        <td>Javelin</td>
-        <td>12.5M</td>
-        <td>8/10</td>
-        <td>10M</td>
-        <td>12.5M</td>
-    </tr>
-    <tr>
-        <td>Brulee</td>
-        <td>8.5M</td>
-        <td>2/10</td>
-        <td>5.5M</td>
-        <td>10M</td>
-    </tr>
-    <tr>
-        <td>Power 1</td>
-        <td>3.25M</td>
-        <td>8/10</td>
-        <td>Nil</td>
-        <td>12.5M</td>
-    </tr>
-    <tr>
-        <td>Jb8</td>
-        <td>7.5M</td>
-        <td>5/10</td>
-        <td>Nil</td>
-        <td>7.5M</td>
-    </tr>
-    <tr>
-        <td>Molten M12</td>
-        <td>5.5M</td>
-        <td>7/10</td>
-        <td>Nil</td>
-        <td>5.5M</td>
-    </tr>
-    <tr>
-        <td>Volt 4x4</td>
-        <td>4M</td>
-        <td>6/10</td>
-        <td>Nil</td>
-        <td>4M</td>
-    </tr>
-    <tr>
-        <td>Macaron</td>
-        <td>3.75M</td>
-        <td>7/10</td>
-        <td>Nil</td>
-        <td>3.75M</td>
-    </tr>
-    <tr>
-        <td>Torero</td>
-        <td>2.5M</td>
-        <td>6/10</td>
-        <td>Nil</td>
-        <td>3M</td>
-    </tr>
-    <tr>
-        <td>Parisian</td>
-        <td>3M</td>
-        <td>7/10</td>
-        <td>Nil</td>
-        <td>3M</td>
-    </tr>
-    <tr>
-        <td>Aperture</td>
-        <td>3.5M</td>
-        <td>5/10</td>
-        <td>Nil</td>
-        <td>3M</td>
-    </tr>
-    <tr>
-        <td>Shogun</td>
-        <td>2.5M</td>
-        <td>7/10</td>
-        <td>Nil</td>
-        <td>3.25M</td>
-    </tr>
-    <tr>
-        <td>Bandit</td>
-        <td>2.5M</td>
-        <td>5/10</td>
-        <td>Nil</td>
-        <td>2.5M</td>
-    </tr>
-    <tr>
-        <td>Goliath</td>
-        <td>2.5M</td>
-        <td>5/10</td>
-        <td>Nil</td>
-        <td>2.5M</td>
-    </tr>
-    <tr>
-        <td>Rattler</td>
-        <td>2.5M</td>
-        <td>5/10</td>
-        <td>Nil</td>
-        <td>2.5M</td>
-    </tr>
-    <tr>
-        <td>Agent</td>
-        <td>2.5M</td>
-        <td>5/10</td>
-        <td>Nil</td>
-        <td>2.5M</td>
-    </tr>
-    <tr>
-        <td>Poseidon</td>
-        <td>2.5M</td>
-        <td>6/10</td>
-        <td>Nil</td>
-        <td>2.5M</td>
-    </tr>
-    <tr>
-        <td>Airtail</td>
-        <td>1.5M</td>
-        <td>6/10</td>
-        <td>Nil</td>
-        <td>1.5M</td>
-    </tr>
-    <tr>
-        <td>Snake</td>
-        <td>1.4M</td>
-        <td>6/10</td>
-        <td>Nil</td>
-        <td>1.5M</td>
-    </tr>
-    <tr>
-        <td>Bloxy</td>
-        <td>1.3M</td>
-        <td>6/10</td>
-        <td>Nil</td>
-        <td>1.4M</td>
-    </tr>
-    <tr>
-        <td>Tiny Toy</td>
-        <td>1M</td>
-        <td>6/10</td>
-        <td>Nil</td>
-        <td>1.25M</td>
-    </tr>
-    <tr>
-        <td>Shell Classic</td>
-        <td>1M</td>
-        <td>5/10</td>
-        <td>Nil</td>
-        <td>1M</td>
-    </tr>
-    <tr>
-        <td>Megaladon</td>
-        <td>1M</td>
-        <td>5/10</td>
-        <td>Nil</td>
-        <td>1M</td>
-    </tr>
-    <tr>
-        <td>Jack Rabbit</td>
-        <td>1M</td>
-        <td>5/10</td>
-        <td>Nil</td>
-        <td>1M</td>
-    </tr>
-    <tr>
-        <td>Posh</td>
-        <td>500k</td>
-        <td>4/10</td>
-        <td>Nil</td>
-        <td>500k</td>
-    </tr>
-    <tr>
-        <td>Steed</td>
-        <td>200k</td>
-        <td>3/10</td>
-        <td>Nil</td>
-        <td>200k</td>
-    </tr>
-    <tr>
-        <td>Suv</td>
-        <td>200k</td>
-        <td>3/10</td>
-        <td>Nil</td>
-        <td>200k</td>
-    </tr>
-    <tr>
-        <td>Classic</td>
-        <td>200k</td>
-        <td>3/10</td>
-        <td>Nil</td>
-        <td>200k</td>
-    </tr>
-    <tr>
-        <td>Mighty</td>
-        <td>200k</td>
-        <td>3/10</td>
-        <td>Nil</td>
-        <td>200k</td>
-    </tr>
-
-    </table>
-</div>
-
-<div id="texturesColors" class="tab">
-    <h1 class="tab-title">Textures/Colors</h1>
-    <table>
-        <tr>
-            <th>Item</th>
-            <th>Value</th>
-            <th>Demand</th>
-            <th>Duped Value</th>
-            <th>Demand Value (NOT UPDATED)</th>
-        </tr>
-        <!-- Item 7 -->
-        <tr>
-            <td>Checkers</td>
-            <td>35M</td>
-            <td>7/10</td>
-            <td>32.5M</td>
-            <td>35M</td>
-        </tr>
-        <!-- Item 8 -->
-        <tr>
-    <td>Vanta Black</td>
-    <td>20.5M</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>22.5M</td>
-</tr>
-
-<!-- Item 9 -->
-<tr>
-    <td>SnowStorm</td>
-    <td>11M</td>
-    <td>6/10</td>
-    <td>Nil</td>
-    <td>12.5M</td>
-</tr>
-
-<!-- Item 10 -->
-<tr>
-    <td>Fire</td>
-    <td>5.5M</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>6.25M</td>
-</tr>
-
-<!-- Item 11 -->
-<tr>
-    <td>Drip</td>
-    <td>5.5M</td>
-    <td>8/10</td>
-    <td>Nil</td>
-    <td>5.6M</td>
-</tr>
-
-<!-- Item 12 -->
-<tr>
-    <td>Galactic Carbon</td>
-    <td>4M</td>
-    <td>7/10</td>
-    <td>Nil</td>
-    <td>5M</td>
-</tr>
-
-<!-- Item 13 -->
-<tr>
-    <td>Armor</td>
-    <td>3.25M</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>4M</td>
-</tr>
-
-<!-- Item 14 -->
-<tr>
-    <td>Winter Camo</td>
-    <td>2.5M</td>
-    <td>6/10</td>
-    <td>Nil</td>
-    <td>2.5M</td>
-</tr>
-
-<!-- Item 15 -->
-<tr>
-    <td>Blue pixel</td>
-    <td>2.5M</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>2.5M</td>
-</tr>
-
-<!-- Item 16 -->
-<tr>
-    <td>Gold</td>
-    <td>2.5M</td>
-    <td>6/10</td>
-    <td>Nil</td>
-    <td>2.5M</td>
-</tr>
-
-<!-- Item 17 -->
-<tr>
-    <td>EathQuake</td>
-    <td>2M</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 18 -->
-<tr>
-    <td>Black Ice</td>
-    <td>2M</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 19 -->
-<tr>
-    <td>Orange Pixel</td>
-    <td>2M</td>
-    <td>6/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 20 -->
-<tr>
-    <td>Field</td>
-    <td>1.5M</td>
-    <td>4/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 21 -->
-<tr>
-    <td>Pixel</td>
-    <td>1.25M</td>
-    <td>6/10</td>
-    <td>Nil</td>
-    <td>1.4M</td>
-</tr>
-
-<!-- Item 22 -->
-<tr>
-    <td>Old Town Road</td>
-    <td>1.25M</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 23 -->
-<tr>
-    <td>Earth</td>
-    <td>1.25M</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 24 -->
-<tr>
-    <td>Glowing Yellow</td>
-    <td>1.25M</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 25 -->
-<tr>
-    <td>Crimson Racer</td>
-    <td>1.25M</td>
-    <td>6/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 26 -->
-<tr>
-    <td>Tiger</td>
-    <td>1M</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 27 -->
-<tr>
-    <td>Bacon</td>
-    <td>1M</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 28 -->
-<tr>
-    <td>Money</td>
-    <td>1M</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 29 -->
-<tr>
-    <td>Lightning</td>
-    <td>1M</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 30 -->
-<tr>
-    <td>Hot Dog</td>
-    <td>1M</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 31 -->
-<tr>
-    <td>Wavy</td>
-    <td>1M</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 32 -->
-<tr>
-    <td>Radiant Ice</td>
-    <td>1M</td>
-    <td>6/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 33 -->
-<tr>
-    <td>Digital Confetti</td>
-    <td>800k</td>
-    <td>4/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 34 -->
-<tr>
-    <td>Manga</td>
-    <td>500k</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 35 -->
-<tr>
-    <td>Radiant Orange</td>
-    <td>500k</td>
-    <td>4/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 36 -->
-<tr>
-    <td>Flaming</td>
-    <td>400k</td>
-    <td>4/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 37 -->
-<tr>
-    <td>Circuits</td>
-    <td>400k</td>
-    <td>4/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 38 -->
-<tr>
-    <td>White Marble</td>
-    <td>400k</td>
-    <td>4/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 39 -->
-<tr>
-    <td>Camo Radar</td>
-    <td>300k</td>
-    <td>3/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 40 -->
-<tr>
-    <td>Lava</td>
-    <td>400k</td>
-    <td>4/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 41 -->
-<tr>
-    <td>Radiant yellow</td>
-    <td>300k</td>
-    <td>4/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 42 -->
-<tr>
-    <td>Radiant purple</td>
-    <td>300k</td>
-    <td>4/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 43 -->
-<tr>
-    <td>Gulf</td>
-    <td>500k</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 44 -->
-<tr>
-    <td>Super Star</td>
-    <td>200k</td>
-    <td>3/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 45 -->
-<tr>
-    <td>Touch Down</td>
-    <td>200k</td>
-    <td>3/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 46 -->
-<tr>
-    <td>Radiant Green</td>
-    <td>200k</td>
-    <td>4/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 47 -->
-<tr>
-    <td>Wooden toy</td>
-    <td>100k</td>
-    <td>3/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 48 -->
-<tr>
-    <td>Darkest Purple</td>
-    <td>100k</td>
-    <td>3/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 49 -->
-<tr>
-    <td>Fall Chrome</td>
-    <td>50k</td>
-    <td>2/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-    </table>
-</div>
-
-<div id="rims" class="tab">
-    <h1 class="tab-title">Rims</h1>
-    <table>
-        <tr>
-        <th>Item</th>
-        <th>Value</th>
-        <th>Demand</th>
-        <th>Duped Value</th>
-        <th>Demand Value (NOT UPDATED)</th>
-    </tr>
-    <!-- Item 1 -->
-    <tr>
-        <td>Spinner</td>
-        <td>67.5M</td>
-        <td>6/10</td>
-        <td>60M</td>
-        <td>75M</td>
-    </tr>
-    <!-- Item 2 -->
-    <tr>
-        <td>Void</td>
-        <td>47.5M</td>
-        <td>9/10</td>
-        <td>40M</td>
-        <td>47.5M</td>
-    </tr>
-    <!-- Item 3 -->
-    <tr>
-        <td>Rtx</td>
-        <td>21M</td>
-        <td>7/10</td>
-        <td>18M</td>
-        <td>Same</td>
-    </tr>
-    <!-- Item 4 -->
-    <tr>
-        <td>Snow Flake</td>
-        <td>8M</td>
-        <td>5/10</td>
-        <td>Nil</td>
-        <td>Same</td>
-    </tr>
-    <!-- Item 5 -->
-    <tr>
-        <td>Hypno</td>
-        <td>7M</td>
-        <td>5/10</td>
-        <td>Nil</td>
-        <td>Same</td>
-    </tr>
-    <!-- Item 6 -->
-    <tr>
-        <td>Brickset</td>
-        <td>6.5M</td>
-        <td>5/10</td>
-        <td>Nil</td>
-        <td>Same</td>
-    </tr>
-    <tr>
-    <td>Snow Face</td>
-    <td>6M</td>
-    <td>6/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 8 -->
-<tr>
-    <td>icicle</td>
-    <td>5M</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 9 -->
-<tr>
-    <td>Ionize</td>
-    <td>2.5M</td>
-    <td>6/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 10 -->
-<tr>
-    <td>Planetry</td>
-    <td>2.5M</td>
-    <td>6/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 11 -->
-<tr>
-    <td>Blue Eyes</td>
-    <td>2.5M</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 12 -->
-<tr>
-    <td>Spider leg</td>
-    <td>2.5M</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 13 -->
-<tr>
-    <td>Star Badge</td>
-    <td>2.5M</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 14 -->
-<tr>
-    <td>Bull</td>
-    <td>2M</td>
-    <td>4/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 15 -->
-<tr>
-    <td>Red Eyes</td>
-    <td>2M</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 16 -->
-<tr>
-    <td>Center Lock</td>
-    <td>2M</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 17 -->
-<tr>
-    <td>Disorted</td>
-    <td>1.75M</td>
-    <td>4/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 18 -->
-<tr>
-    <td>Soccer</td>
-    <td>1.35M</td>
-    <td>3/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 19 -->
-<tr>
-    <td>Energized</td>
-    <td>1.25M</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 20 -->
-<tr>
-    <td>Iron rock</td>
-    <td>1.25M</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 21 -->
-<tr>
-    <td>nemesis</td>
-    <td>1.25M</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 22 -->
-<tr>
-    <td>Dim Engrave</td>
-    <td>1.25M</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 23 -->
-<tr>
-    <td>Track Toy</td>
-    <td>1M</td>
-    <td>5/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 24 -->
-<tr>
-    <td>Sakura</td>
-    <td>700k</td>
-    <td>4/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 25 -->
-<tr>
-    <td>Stance</td>
-    <td>600k</td>
-    <td>3/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 26 -->
-<tr>
-    <td>Radar</td>
-    <td>600k</td>
-    <td>3/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 27 -->
-<tr>
-    <td>Laser Cannon</td>
-    <td>600k</td>
-    <td>4/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 28 -->
-<tr>
-    <td>Live 2020</td>
-    <td>500k</td>
-    <td>2/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 29 -->
-<tr>
-    <td>Fore!</td>
-    <td>500k</td>
-    <td>2/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 30 -->
-<tr>
-    <td>Bead Lock</td>
-    <td>500k</td>
-    <td>2/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 31 -->
-<tr>
-    <td>B-Ball</td>
-    <td>400k</td>
-    <td>2/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 32 -->
-<tr>
-    <td>Compass</td>
-    <td>400k</td>
-    <td>2/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 33 -->
-<tr>
-    <td>Bonded</td>
-    <td>400k</td>
-    <td>2/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 34 -->
-<tr>
-    <td>Roll-x</td>
-    <td>400k</td>
-    <td>2/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 35 -->
-<tr>
-    <td>Tesseract</td>
-    <td>300k</td>
-    <td>2/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 36 -->
-<tr>
-    <td>Retro Racer</td>
-    <td>300k</td>
-    <td>2/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 37 -->
-<tr>
-    <td>Piggy</td>
-    <td>300k</td>
-    <td>2/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 38 -->
-<tr>
-    <td>Trion</td>
-    <td>300k</td>
-    <td>1/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 39 -->
-<tr>
-    <td>Scope</td>
-    <td>200k</td>
-    <td>1/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 40 -->
-<tr>
-    <td>Unknown Signal</td>
-    <td>200k</td>
-    <td>1/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 41 -->
-<tr>
-    <td>Saw Blade</td>
-    <td>100k</td>
-    <td>2/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 42 -->
-<tr>
-    <td>Teddy Bear</td>
-    <td>100k</td>
-    <td>1/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-
-<!-- Item 43 -->
-<tr>
-    <td>Electro Static</td>
-    <td>50k</td>
-    <td>1/10</td>
-    <td>Nil</td>
-    <td>Same</td>
-</tr>
-    </table>
-</div>
-
-<div id="spoilers" class="tab">
-    <h1 class="tab-title">Spoilers</h1>
-    <table>
-        <tr>
-            <th>Item</th>
-            <th>Value</th>
-            <th>Demand</th>
-            <th>Duped Value</th>
-            <th>Demand Value (NOT UPDATED)</th>
-        </tr>
-        <tr>
-            <td>Thrusters</td>
-            <td>43.5M</td>
-            <td>9/10</td>
-            <td>37.5M</td>
-            <td>45M</td>
-        </tr>
-        <tr>
-            <td>2Bil</td>
-            <td>12M</td>
-            <td>5/10</td>
-            <td>Nil</td>
-            <td>16M</td>
-        </tr>
-        <tr>
-            <td>Brickset</td>
-            <td>10M</td>
-            <td>6/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>5 Star</td>
-            <td>6M</td>
-            <td>6/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Eight Leg</td>
-            <td>5M</td>
-            <td>6/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Snow Shovel</td>
-            <td>3.75M</td>
-            <td>5/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Bicycle Rack</td>
-            <td>3.75M</td>
-            <td>5/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Volt Wing</td>
-            <td>3.75M</td>
-            <td>5/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Velocity</td>
-            <td>2.5M</td>
-            <td>6/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Tiki Torch</td>
-            <td>2.5M</td>
-            <td>6/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Click Bait</td>
-            <td>2.5M</td>
-            <td>6/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Dual Rockets</td>
-            <td>2.5M</td>
-            <td>7/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Cash Spitters</td>
-            <td>2.5M</td>
-            <td>7/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Dual Flags</td>
-            <td>1.5M</td>
-            <td>5/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Spare</td>
-            <td>1.35M</td>
-            <td>5/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Mecha Arm</td>
-            <td>1.25M</td>
-            <td>5/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Ufo</td>
-            <td>1.25M</td>
-            <td>6/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Blue Chute</td>
-            <td>1.25M</td>
-            <td>6/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Glider Wing</td>
-            <td>1.25M</td>
-            <td>5/10</td>
-            <td>Nil</td>
-            <td>same</td>
-        </tr>
-        <tr>
-            <td>JDM</td>
-            <td>1M</td>
-            <td>5/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Live Glider</td>
-            <td>1M</td>
-            <td>5/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Death Trap</td>
-            <td>1M</td>
-            <td>5/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>3Bil</td>
-            <td>1M</td>
-            <td>5/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Water Gun</td>
-            <td>900k</td>
-            <td>5/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Orange Chute</td>
-            <td>800k</td>
-            <td>5/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Triple Fin</td>
-            <td>800k</td>
-            <td>5/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>After Burner</td>
-            <td>800k</td>
-            <td>5/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Jet pack</td>
-            <td>800k</td>
-            <td>5/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Sail Wing</td>
-            <td>700k</td>
-            <td>5/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Turning Key</td>
-            <td>600k</td>
-            <td>5/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Flame Thrower</td>
-            <td>600k</td>
-            <td>5/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Overdrive</td>
-            <td>600k</td>
-            <td>5/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Endurance Wing</td>
-            <td>600k</td>
-            <td>5/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Antena</td>
-            <td>600k</td>
-            <td>4/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Robowing</td>
-            <td>500k</td>
-            <td>3/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Tuner</td>
-            <td>500k</td>
-            <td>3/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Star Wing</td>
-            <td>500k</td>
-            <td>3/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Do you Lift</td>
-            <td>500k</td>
-            <td>3/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Snow Log</td>
-            <td>400k</td>
-            <td>3/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Travel case</td>
-            <td>400k</td>
-            <td>2/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Trophy Wings</td>
-            <td>400k</td>
-            <td>2/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>J.p Lantern</td>
-            <td>300k</td>
-            <td>3/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Death Ray</td>
-            <td>200k</td>
-            <td>2/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Torigate</td>
-            <td>150k</td>
-            <td>2/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Tank Wing</td>
-            <td>100k</td>
-            <td>2/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-    </table>
-</div>
-
-<div id="tires" class="tab">
-    <h1 class="tab-title">Tires</h1>
-    <table>
-        <tr>
-            <th>Item</th>
-            <th>Value</th>
-            <th>Demand</th>
-            <th>Duped Value</th>
-            <th>Demand Value (NOT UPDATED)</th>
-        </tr>
-        <tr>
-            <td>Blue 50</td>
-            <td>7.5M</td>
-            <td>6/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Red 50</td>
-            <td>3.5M</td>
-            <td>6/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Japanese Resh</td>
-            <td>1M</td>
-            <td>5/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Blue S3</td>
-            <td>1M</td>
-            <td>4/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Red S3</td>
-            <td>500k</td>
-            <td>4/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>3 Billion</td>
-            <td>500k</td>
-            <td>4/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Lightning</td>
-            <td>200k</td>
-            <td>3/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Army</td>
-            <td>100k</td>
-            <td>3/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Kanagawa</td>
-            <td>100k</td>
-            <td>2/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Tokyo</td>
-            <td>100k</td>
-            <td>2/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-        <tr>
-            <td>Champion</td>
-            <td>100k</td>
-            <td>1/10</td>
-            <td>Nil</td>
-            <td>Same</td>
-        </tr>
-    </table>
-</div>
-
-<div id="hypers" class="tab">
-    <h1 class="tab-title">Hypers</h1>
-    <table>
-        <tr>
-            <th>Item</th>
-            <th>Lvl 1 Value</th>
-            <th>Lvl 2 Value</th>
-            <th>Lvl 3 Value</th>
-            <th>Lvl 4 Value</th>
-            <th>Lvl 5 Value</th>
-            <th>Duped 4 Value</th>
-            <th>Duped 5 Value</th>
-            <th>Duped 5 Demand</th>
-            <th>Clean 5 Demand</th>
-        </tr>
-        <tr>
-            <td>Yellow</td>
-            <td>450k</td>
-            <td>1M</td>
-            <td>7.5M</td>
-            <td>35M</td>
-            <td>62.5M</td>
-            <td>27.5M</td>
-            <td>35M</td>
-            <td>5/10</td>
-            <td>4/10</td>
-        </tr>
-        <tr>
-            <td>Orange</td>
-            <td>500k</td>
-            <td>1.25M</td>
-            <td>10M</td>
-            <td>40M</td>
-            <td>72.5M</td>
-            <td>33.75M</td>
-            <td>42.5M</td>
-            <td>6/10</td>
-            <td>5/10</td>
-        </tr>
-        <tr>
-            <td>Purple</td>
-            <td>650k</td>
-            <td>2M</td>
-            <td>12.5M</td>
-            <td>62.5M</td>
-            <td>100M</td>
-            <td>47.5M</td>
-            <td>50M</td>
-            <td>7/10</td>
-            <td>6/10</td>
-        </tr>
-        <tr>
-            <td>Pink</td>
-            <td>700k</td>
-            <td>2.5M</td>
-            <td>15M</td>
-            <td>62.5M</td>
-            <td>107.5M</td>
-            <td>52M</td>
-            <td>51.25M</td>
-            <td>7/10</td>
-            <td>6/10</td>
-        </tr>
-        <tr>
-            <td>Diamond</td>
-            <td>750k</td>
-            <td>2M</td>
-            <td>15M</td>
-            <td>65M</td>
-            <td>125M</td>
-            <td>65M</td>
-            <td>52.5M</td>
-            <td>8/10</td>
-            <td>7/10</td>
-        </tr>
-        <tr>
-            <td>Green</td>
-            <td>800k</td>
-            <td>3.5M</td>
-            <td>30M</td>
-            <td>110M</td>
-            <td>197M</td>
-            <td>58M</td>
-            <td>55M-57.5M</td>
-            <td>8/10</td>
-            <td>7/10</td>
-        </tr>
-        <tr>
-            <td>Blue</td>
-            <td>780k</td>
-            <td>3M</td>
-            <td>35M</td>
-            <td>110M</td>
-            <td>211.5M</td>
-            <td>77M</td>
-            <td>60M</td>
-            <td>9/10</td>
-            <td>8/10</td>
-        </tr>
-        <tr>
-            <td>Red</td>
-            <td>850K</td>
-            <td>3.75M</td>
-            <td>35M</td>
-            <td>120M</td>
-            <td>210M</td>
-            <td>55M</td>
-            <td>60M</td>
-            <td>8/10</td>
-            <td>7/10</td>
-        </tr>
-    </table>
-</div>
-
-
-
-<script>
-    var sortOrder = 'desc'; // Initial sorting order
-
-    // Function to convert price to a numeric value
-    function priceToNumeric(price) {
-        if (price.includes('K')) {
-            return parseFloat(price) * 1000;
-        } else if (price.includes('M')) {
-            return parseFloat(price) * 1000000;
-        } else {
-            return parseFloat(price);
-        }
-    }
-
-    // Function to toggle sorting order and update button label
-    function toggleSort() {
-        var sortButton = document.querySelector('.sortButton');
-        if (sortOrder === 'desc') {
-            sortOrder = 'asc';
-            sortButton.textContent = '⬆️ Sort by: Price Lowest to Highest';
-        } else {
-            sortOrder = 'desc';
-            sortButton.textContent = '⬇️ Sort by: Price Highest to Lowest';
-        }
-        sortTable('cars', sortOrder);
-        sortTable('texturesColors', sortOrder);
-        sortTable('rims', sortOrder);
-        sortTable('spoilers', sortOrder);
-        sortTable('tires', sortOrder);
-        sortTable('hypers', sortOrder);
-    }
-
-    // Function to sort the table rows
-    function sortTable(tabName, order) {
-        var table = document.querySelector(`#${tabName} table`);
-        var rows = Array.from(table.rows);
-
-        rows.shift(); // Remove the header row from sorting
-
-        rows.sort(function (a, b) {
-            var valueA = priceToNumeric(a.cells[1].textContent);
-            var valueB = priceToNumeric(b.cells[1].textContent);
-            return order === 'desc' ? valueB - valueA : valueA - valueB;
-        });
-
-        // Clear the table body
-        while (table.rows.length > 1) {
-            table.deleteRow(1);
+    <aside>
+        <h2>Menu</h2>
+        <nav>
+            <button onclick="loadHome()">Home</button>
+            <button onclick="loadValues()">Values</button>
+        </nav>
+    </aside>
+
+    <main class="main-content" id="main-content">
+        <header>
+            <h1 class="your-style">Vanta Official</h1>
+            <img class="logo" src="Images/logo1.png" alt="Logo">
+        </header>
+        <div class="black-border">
+            <h2>What is Vanta Official?</h2>
+            <p>Welcome to Vanta Official! Dive into a world of trading expertise with our carefully curated value list, a valuable resource crafted by seasoned traders to keep you updated on the latest values. Explore essential trading tools like our value calculator and item dupes, designed to empower you in making informed decisions and navigating the Jailbreak trading landscape with confidence.</p>
+        </div>
+        <div class="black-border clickable-box bottom-box-content" onclick="loadInvite()">
+            <div class="discord-box">
+                <img class="discord-image" src="Images/discord.png" alt="Discord">
+                <p class="join-discord">Join our Discord server now!</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function loadHome() {
+            document.getElementById("main-content").innerHTML = `
+                <header>
+                    <h1 class="your-style">Vanta Official</h1>
+                    <img class="logo" src="Images/logo1.png" alt="Logo">
+                </header>
+                <div class="black-border">
+                    <h2>What is Vanta Official?</h2>
+                    <p>Welcome to Vanta Official! Dive into a world of trading expertise with our carefully curated value list, a valuable resource crafted by seasoned traders to keep you updated on the latest values. Explore essential trading tools like our value calculator and item dupes, designed to empower you in making informed decisions and navigating the Jailbreak trading landscape with confidence.</p>
+                </div>
+                <div class="black-border clickable-box bottom-box-content" onclick="loadInvite()">
+                    <div class="discord-box">
+                        <img class="discord-image" src="Images/discord.png" alt="Discord">
+                        <p class="join-discord">Join our Discord server now!</p>
+                    </div>
+                </div>
+            `;
         }
 
-        // Append the sorted rows
-        rows.forEach(function (row) {
-            table.appendChild(row);
-        });
-    }
-
-    // Initially, sort the tables in descending order by item price (Value)
-    sortTable('cars', 'desc');
-    sortTable('texturesColors', 'desc');
-    sortTable('rims', 'desc');
-    sortTable('spoilers', 'desc');
-    sortTable('tires', 'desc');
-    sortTable('hypers', 'desc');
-
-    // Function for opening tabs (unchanged from your previous code)
-    function openTab(tabName) {
-        var tabs = document.getElementsByClassName("tab");
-        for (var i = 0; i < tabs.length; i++) {
-            tabs[i].style.display = "none";
+        function loadValues() {
+            document.getElementById("main-content").innerHTML = `
+                <h2 id="values-header">Values</h2>
+                <div class="values-container">
+                    <div class="values-box" onclick="loadBeamDetails()">
+                        <img src="Images/Beam Hybrid.png">
+                        <p>Beam</p>
+                        <p>💵 Value: 50M</p>
+                        <p>🔥 Demand: 7/10</p>
+                        <p>💔 Duped Value: 40M</p>
+                    </div>
+                    <div class="values-box" onclick="loadTorpedoDetails()">
+                        <img src="Images/Torpedo.png">
+                        <p>Torpedo</p>
+                        <p>💵 Value: 40-42.5M</p>
+                        <p>🔥 Demand: 5/10</p>
+                        <p>💔 Duped Value: 40M</p>
+                    </div>
+                    <div class="values-box" onclick="loadIcebreakerDetails()">
+                        <img src="Images/Icebreaker.png">
+                        <p>Icebreaker</p>
+                        <p>💵 Value: 40M</p>
+                        <p>🔥 Demand: 10/10</p>
+                        <p>💔 Duped Value: 35M</p>
+                    </div>
+                </div>
+            `;
         }
-        document.getElementById(tabName).style.display = "block";
 
-        var tabButtons = document.getElementsByClassName("tab-button");
-        for (var i = 0; i < tabButtons.length; i++) {
-            tabButtons[i].classList.remove("active-tab");
+        function loadInvite() {
+            window.open('https://discord.gg/hKHXtkJE3C', '_blank');
         }
-        event.currentTarget.classList.add("active-tab");
-    }
-    openTab('cars');
-</script>
+    </script>
 </body>
+
 </html>
