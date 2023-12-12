@@ -1,0 +1,120 @@
+@font-face {
+    font-family: 'Moderna Sans Black It';
+    src: url('ModernaSans-BlackIt.eot');
+    src: local('Moderna Sans Black It'), local('ModernaSans-BlackIt'),
+        url('ModernaSans-BlackIt.eot?#iefix') format('embedded-opentype'),
+        url('ModernaSans-BlackIt.woff2') format('woff2'),
+        url('ModernaSans-BlackIt.woff') format('woff'),
+        url('ModernaSans-BlackIt.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Moderna Sans';
+    src: url('ModernaSans-Light.eot');
+    src: local('Moderna Sans Light'), local('ModernaSans-Light'),
+        url('ModernaSans-Light.eot?#iefix') format('embedded-opentype'),
+        url('ModernaSans-Light.woff2') format('woff2'),
+        url('ModernaSans-Light.woff') format('woff'),
+        url('ModernaSans-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Moderna Sans It';
+    src: url('ModernaSans-RegularIt.eot');
+    src: local('Moderna Sans Regular It'), local('ModernaSans-RegularIt'),
+        url('ModernaSans-RegularIt.eot?#iefix') format('embedded-opentype'),
+        url('ModernaSans-RegularIt.woff2') format('woff2'),
+        url('ModernaSans-RegularIt.woff') format('woff'),
+        url('ModernaSans-RegularIt.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Moderna Sans';
+    src: url('ModernaSans-Bold.eot');
+    src: local('Moderna Sans Bold'), local('ModernaSans-Bold'),
+        url('ModernaSans-Bold.eot?#iefix') format('embedded-opentype'),
+        url('ModernaSans-Bold.woff2') format('woff2'),
+        url('ModernaSans-Bold.woff') format('woff'),
+        url('ModernaSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Moderna Sans Bold It';
+    src: url('ModernaSans-BoldIt.eot');
+    src: local('Moderna Sans Bold It'), local('ModernaSans-BoldIt'),
+        url('ModernaSans-BoldIt.eot?#iefix') format('embedded-opentype'),
+        url('ModernaSans-BoldIt.woff2') format('woff2'),
+        url('ModernaSans-BoldIt.woff') format('woff'),
+        url('ModernaSans-BoldIt.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Moderna Sans';
+    src: url('ModernaSans-Black.eot');
+    src: local('Moderna Sans Black'), local('ModernaSans-Black'),
+        url('ModernaSans-Black.eot?#iefix') format('embedded-opentype'),
+        url('ModernaSans-Black.woff2') format('woff2'),
+        url('ModernaSans-Black.woff') format('woff'),
+        url('ModernaSans-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Moderna Sans Medium It';
+    src: url('ModernaSans-MediumIt.eot');
+    src: local('Moderna Sans Medium It'), local('ModernaSans-MediumIt'),
+        url('ModernaSans-MediumIt.eot?#iefix') format('embedded-opentype'),
+        url('ModernaSans-MediumIt.woff2') format('woff2'),
+        url('ModernaSans-MediumIt.woff') format('woff'),
+        url('ModernaSans-MediumIt.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Moderna Sans Light It';
+    src: url('ModernaSans-LightIt.eot');
+    src: local('Moderna Sans Light It'), local('ModernaSans-LightIt'),
+        url('ModernaSans-LightIt.eot?#iefix') format('embedded-opentype'),
+        url('ModernaSans-LightIt.woff2') format('woff2'),
+        url('ModernaSans-LightIt.woff') format('woff'),
+        url('ModernaSans-LightIt.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Moderna Sans';
+    src: url('ModernaSans-Regular.eot');
+    src: local('Moderna Sans Regular'), local('ModernaSans-Regular'),
+        url('ModernaSans-Regular.eot?#iefix') format('embedded-opentype'),
+        url('ModernaSans-Regular.woff2') format('woff2'),
+        url('ModernaSans-Regular.woff') format('woff'),
+        url('ModernaSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Moderna Sans';
+    src: url('ModernaSans-Medium.eot');
+    src: local('Moderna Sans Medium'), local('ModernaSans-Medium'),
+        url('ModernaSans-Medium.eot?#iefix') format('embedded-opentype'),
+        url('ModernaSans-Medium.woff2') format('woff2'),
+        url('ModernaSans-Medium.woff') format('woff'),
+        url('ModernaSans-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
