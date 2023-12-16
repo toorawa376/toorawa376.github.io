@@ -110,9 +110,9 @@
             margin-bottom: 20px;
             cursor: pointer;
             transition: transform 0.5s ease-in-out;
-            width: 80%; /* Adjusted width for the "What is Vanta Official?" box */
+            width: 80%; 
             max-width: 600px;
-            text-align: center; /* Centered contents */
+            text-align: center;
         }
 
         .black-border:hover {
@@ -154,7 +154,7 @@
             background-color: #f0f0f0;
         }
 
-        /* Additional Styles for Values Page */
+        
 
         #values-header {
             text-align: center;
@@ -169,6 +169,8 @@
             justify-content: space-around;
             align-items: center;
             flex-wrap: wrap;
+            overflow-y: scroll;
+            overflow-x: hidden;
         }
 
         .values-box {
@@ -178,19 +180,28 @@
             margin: 20px;
             cursor: pointer;
             transition: transform 0.5s ease-in-out;
-            width: 40%; /* Adjusted width for the boxes on the values page */
+            width: 40%; 
             max-width: 200px;
-            text-align: center; /* Centered contents */
+            text-align: center;
         }
 
         .values-box:hover {
             transform: scale(1.05);
         }
 
-        /* Adjusted font size for the bottom box on the main page */
+        
         .bottom-box-content {
             font-size: 18px;
         }
+
+        .clickable-box {
+            cursor: pointer;
+        }
+
+        .clickable-box:hover {
+            transform: scale(1.05);
+        }
+
     </style>
 
 </head>
@@ -245,26 +256,306 @@
             document.getElementById("main-content").innerHTML = `
                 <h2 id="values-header">Values</h2>
                 <div class="values-container">
-                    <div class="values-box" onclick="loadBeamDetails()">
+                    <div class="values-box clickable-box" onclick="viewMore('Beam Hybrid')">
                         <img src="Images/Beam Hybrid.png">
-                        <p>Beam</p>
+                        <p>Beam Hybrid</p>
                         <p>💵 Value: 50M</p>
                         <p>🔥 Demand: 7/10</p>
                         <p>💔 Duped Value: 40M</p>
                     </div>
-                    <div class="values-box" onclick="loadTorpedoDetails()">
+                    <div class="values-box clickable-box" onclick="viewMore('Torpedo')">
                         <img src="Images/Torpedo.png">
                         <p>Torpedo</p>
                         <p>💵 Value: 40-42.5M</p>
                         <p>🔥 Demand: 5/10</p>
                         <p>💔 Duped Value: 40M</p>
                     </div>
-                    <div class="values-box" onclick="loadIcebreakerDetails()">
+                    <div class="values-box clickable-box" onclick="viewMore('Icebreaker')">
                         <img src="Images/Icebreaker.png">
                         <p>Icebreaker</p>
                         <p>💵 Value: 40M</p>
                         <p>🔥 Demand: 10/10</p>
                         <p>💔 Duped Value: 35M</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Arachnid')">
+                        <img src="Images/Arachnid.png">
+                        <p>Arachnid</p>
+                        <p>💵 Value: 27.5M</p>
+                        <p>🔥 Demand: 5/10</p>
+                        <p>💔 Duped Value: 22.5M</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Beignet')">
+                        <img src="Images/Beignet.png">
+                        <p>Beignet</p>
+                        <p>💵 Value: 23M</p>
+                        <p>🔥 Demand: 7/10</p>
+                        <p>💔 Duped Value: 20M</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Celsior')">
+                        <img src="Images/Celsior.png">
+                        <p>Celsior</p>
+                        <p>💵 Value: 21.5M</p>
+                        <p>🔥 Demand: 8/10</p>
+                        <p>💔 Duped Value: 18M</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Banana Car')">
+                        <img src="Images/Banana Car.png">
+                        <p>Banana Car</p>
+                        <p>💵 Value: 19.5M</p>
+                        <p>🔥 Demand: 10/10</p>
+                        <p>💔 Duped Value: 16M</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Raptor')">
+                        <img src="Images/Raptor.png">
+                        <p>Raptor</p>
+                        <p>💵 Value: 15M</p>
+                        <p>🔥 Demand: 6/10</p>
+                        <p>💔 Duped Value: 12M</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Crew Capsule')">
+                        <img src="Images/Crew Capsule.png">
+                        <p>Crew Capsule</p>
+                        <p>💵 Value: 13.5M</p>
+                        <p>🔥 Demand: 5/10</p>
+                        <p>💔 Duped Value: 10M</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Javelin')">
+                        <img src="Images/Javelin.png">
+                        <p>Javelin</p>
+                        <p>💵 Value: 13M</p>
+                        <p>🔥 Demand: 8/10</p>
+                        <p>💔 Duped Value: 9M</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Proto 08')">
+                        <img src="Images/Proto 08.png">
+                        <p>Proto 08</p>
+                        <p>💵 Value: 13M</p>
+                        <p>🔥 Demand: 7/10</p>
+                        <p>💔 Duped Value: 9M</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Brulee')">
+                        <img src="Images/Brulee.png">
+                        <p>Brulee</p>
+                        <p>💵 Value: 8M</p>
+                        <p>🔥 Demand: 5/10</p>
+                        <p>💔 Duped Value: 5.5M</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('JB8')">
+                        <img src="Images/JB8.png">
+                        <p>JB8</p>
+                        <p>💵 Value: 7.5M</p>
+                        <p>🔥 Demand: 6/10</p>
+                        <p>💔 Duped Value: IDKM</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('M12 Molten')">
+                        <img src="Images/M12 Molten.png">
+                        <p>M12 Molten</p>
+                        <p>💵 Value: 5.5M</p>
+                        <p>🔥 Demand: 7/10</p>
+                        <p>💔 Duped Value: IDKM</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Volt 4x4')">
+                        <img src="Images/Volt 4x4.png">
+                        <p>Volt 4x4</p>
+                        <p>💵 Value: 4M</p>
+                        <p>🔥 Demand: 6/10</p>
+                        <p>💔 Duped Value: IDKM</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Macaron')">
+                        <img src="Images/Macaron.png">
+                        <p>Macaron</p>
+                        <p>💵 Value: 3.5M</p>
+                        <p>🔥 Demand: 7/10</p>
+                        <p>💔 Duped Value: IDKM</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Torero')">
+                        <img src="Images/Torero.png">
+                        <p>Torero</p>
+                        <p>💵 Value: 2.5M</p>
+                        <p>🔥 Demand: 6/10</p>
+                        <p>💔 Duped Value: Nil</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Parisian')">
+                        <img src="Images/Parisian.png">
+                        <p>Parisian</p>
+                        <p>💵 Value: 3M</p>
+                        <p>🔥 Demand: 7.75/10</p>
+                        <p>💔 Duped Value: Nil</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Aperture')">
+                        <img src="Images/Aperture.png">
+                        <p>Aperture</p>
+                        <p>💵 Value: 2.6M</p>
+                        <p>🔥 Demand: 7.5/10</p>
+                        <p>💔 Duped Value: Nil</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Shogun')">
+                        <img src="Images/Shogun.png">
+                        <p>Shogun</p>
+                        <p>💵 Value: 2.75M</p>
+                        <p>🔥 Demand: 7.5/10</p>
+                        <p>💔 Duped Value: Nil (occasionally gets slight op)</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Bandit')">
+                        <img src="Images/Bandit.png">
+                        <p>Bandit</p>
+                        <p>💵 Value: 2.5M</p>
+                        <p>🔥 Demand: 6.25/10</p>
+                        <p>💔 Duped Value: Nil</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Goliath')">
+                        <img src="Images/Goliath.png">
+                        <p>Goliath</p>
+                        <p>💵 Value: 2.5M</p>
+                        <p>🔥 Demand: 6.25/10</p>
+                        <p>💔 Duped Value: Nil</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Torero')">
+                        <img src="Images/Torero.png">
+                        <p>Torero</p>
+                        <p>💵 Value: 2.5M</p>
+                        <p>🔥 Demand: 6/10</p>
+                        <p>💔 Duped Value: Nil</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Parisian')">
+                        <img src="Images/Parisian.png">
+                        <p>Parisian</p>
+                        <p>💵 Value: 3M</p>
+                        <p>🔥 Demand: 7.75/10</p>
+                        <p>💔 Duped Value: Nil</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Aperture')">
+                        <img src="Images/Aperture.png">
+                        <p>Aperture</p>
+                        <p>💵 Value: 2.6M</p>
+                        <p>🔥 Demand: 7.5/10</p>
+                        <p>💔 Duped Value: Nil</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Shogun')">
+                        <img src="Images/Shogun.png">
+                        <p>Shogun</p>
+                        <p>💵 Value: 2.75M</p>
+                        <p>🔥 Demand: 7.5/10</p>
+                        <p>💔 Duped Value: Nil (occasionally gets slight op)</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Bandit')">
+                        <img src="Images/Bandit.png">
+                        <p>Bandit</p>
+                        <p>💵 Value: 2.5M</p>
+                        <p>🔥 Demand: 6.25/10</p>
+                        <p>💔 Duped Value: Nil</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Goliath')">
+                        <img src="Images/Goliath.png">
+                        <p>Goliath</p>
+                        <p>💵 Value: 2.5M</p>
+                        <p>🔥 Demand: 6.25/10</p>
+                        <p>💔 Duped Value: Nil</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Rattler')">
+                        <img src="Images/Rattler.png">
+                        <p>Rattler</p>
+                        <p>💵 Value: 2.5M</p>
+                        <p>🔥 Demand: 5/10</p>
+                        <p>💔 Duped Value: Nil</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Agent')">
+                        <img src="Images/Agent.png">
+                        <p>Agent</p>
+                        <p>💵 Value: 2.5M</p>
+                        <p>🔥 Demand: 5/10</p>
+                        <p>💔 Duped Value: Nil</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Poseidon')">
+                        <img src="Images/Poseidon.png">
+                        <p>Poseidon</p>
+                        <p>💵 Value: 2.5M</p>
+                        <p>🔥 Demand: 5/10</p>
+                        <p>💔 Duped Value: Nil</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Airtail')">
+                        <img src="Images/Airtail.png">
+                        <p>Airtail</p>
+                        <p>💵 Value: 1.5M</p>
+                        <p>🔥 Demand: 6/10</p>
+                        <p>💔 Duped Value: Nil</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Snake')">
+                        <img src="Images/Snake.png">
+                        <p>Snake</p>
+                        <p>💵 Value: 1.5M</p>
+                        <p>🔥 Demand: 6/10</p>
+                        <p>💔 Duped Value: Nil</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Bloxy')">
+                        <img src="Images/Bloxy.png">
+                        <p>Bloxy</p>
+                        <p>💵 Value: 1.25M</p>
+                        <p>🔥 Demand: 5.5/10</p>
+                        <p>💔 Duped Value: Nil</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Tiny Toy')">
+                        <img src="Images/Tiny Toy.png">
+                        <p>Tiny Toy</p>
+                        <p>💵 Value: 1.25M</p>
+                        <p>🔥 Demand: 6/10</p>
+                        <p>💔 Duped Value: Nil</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Shell Classic')">
+                        <img src="Images/Shell Classic.png">
+                        <p>Shell Classic</p>
+                        <p>💵 Value: 300K-500K</p>
+                        <p>🔥 Demand: 5/10</p>
+                        <p>💔 Duped Value: Nil</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Megalodon')">
+                        <img src="Images/Megalodon.png">
+                        <p>Megaladon</p>
+                        <p>💵 Value: 1M</p>
+                        <p>🔥 Demand: 5/10</p>
+                        <p>💔 Duped Value: Nil</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Jackrabbit')">
+                        <img src="Images/Jackrabbit.png">
+                        <p>Jack Rabbit</p>
+                        <p>💵 Value: 800K-900K</p>
+                        <p>🔥 Demand: 5/10</p>
+                        <p>💔 Duped Value: Nil</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Posh')">
+                        <img src="Images/Posh.png">
+                        <p>Posh</p>
+                        <p>💵 Value: 400K</p>
+                        <p>🔥 Demand: 4/10</p>
+                        <p>💔 Duped Value: Nil</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Steed')">
+                        <img src="Images/Steed.png">
+                        <p>Steed</p>
+                        <p>💵 Value: 325K</p>
+                        <p>🔥 Demand: 3/10</p>
+                        <p>💔 Duped Value: Nil</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Suv')">
+                        <img src="Images/Suv.png">
+                        <p>Suv</p>
+                        <p>💵 Value: 300K</p>
+                        <p>🔥 Demand: 3/10</p>
+                        <p>💔 Duped Value: Nil</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Classic')">
+                        <img src="Images/Classic.png">
+                        <p>Classic</p>
+                        <p>💵 Value: 250K</p>
+                        <p>🔥 Demand: 3/10</p>
+                        <p>💔 Duped Value: Nil</p>
+                    </div>
+                    <div class="values-box clickable-box" onclick="viewMore('Mighty')">
+                        <img src="Images/Mighty.png">
+                        <p>Mighty</p>
+                        <p>💵 Value: 225K</p>
+                        <p>🔥 Demand: 3/10</p>
+                        <p>💔 Duped Value: Nil</p>
                     </div>
                 </div>
             `;
@@ -273,6 +564,8 @@
         function loadInvite() {
             window.open('https://discord.gg/hKHXtkJE3C', '_blank');
         }
+
+        
     </script>
 </body>
 
